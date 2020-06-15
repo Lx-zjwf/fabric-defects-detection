@@ -5,4 +5,6 @@ A detection model for fabric defects based on deep Cascade R-CNN is proposed, fo
 Python3.7, Pytorch 1.1.0 and other comman packages listed in requirements.txt.<br>
 Install and compile mmdetection from <https://github.com/open-mmlab/mmdetection>.<br>
 Download project from <https://github.com/Cartucho/mAP> to caluculate mAP.<br>
-You can get fabric dataset and pretrained weight from <https://pan.baidu.com/s/1TDBU5a5WPtr9kAdIIkvM-Q>, and the password is tlfz.
+The fabric datasets and pretrained weight are contained in <https://pan.baidu.com/s/1TDBU5a5WPtr9kAdIIkvM-Q>, and the password is tlfz. You should unzip the packages to corrsponding folder, and merge two train datasets into one folder.
+
+# Introduction
