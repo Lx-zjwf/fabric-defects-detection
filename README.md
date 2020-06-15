@@ -12,4 +12,6 @@ Before training, you should modify parameters in config file cascade_rcnn_r50_fp
 
 # Introduction
 This item provide a Cascade R-CNN for fabric defects detection, based on the baseline provided by sloan and jianh <https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.9.43b46448UDpstK&postId=74264> and datasets provided by Tianchi algorithm Contest <https://tianchi.aliyun.com/competition/entrance/231748/introduction?spm=5176.12281957.1004.5.38b02448NiKTgT>. The Resnet50 is set as backbone network to extract feature, combined with feature pyramid network and deformable convolution. We use three 
-R-CNN branches to locate and classify defects with gradual increasing iou threshold, and each branch samples by OHEM algorithm. The model can obtain 61.67% average iou, 78.67% precision, 79.79% recall and 62% mAP. The detection result in 
+R-CNN branches to locate and classify defects with gradual increasing iou threshold, and each branch samples by OHEM algorithm. The model can obtain 61.67% average iou, 78.67% precision, 79.79% recall and 62% mAP. The detection results can be shown as follows:
+
+APs of detection results in each defect class are illustrated in the following picture: 
