@@ -7,4 +7,5 @@ Install and compile mmdetection from <https://github.com/open-mmlab/mmdetection>
 Download project from <https://github.com/Cartucho/mAP> to caluculate mAP.<br>
 The fabric datasets and pretrained weight are contained in <https://pan.baidu.com/s/1TDBU5a5WPtr9kAdIIkvM-Q>, and the password is tlfz. You should unzip the packages to corrsponding folder, and merge two train datasets into one folder.
 
-# Introduction
+# Instruction
+Before training, you should modify parameters in config file cascade_rcnn_r50_fpn_1x.py, the paths data_root, ann_file, img_prefix, work_dir and load_from should be set by yourself. Run mmdetection_train.py to train network and mmdetection_test or detect_test to test. To calculate mAP, you should first run detect_data.py to generate ground truth file and detection result file. The you can replace folder "ground-truth" and "detection-results" in project "mAP", run index_calc.py and mAP_calc.py to calculate the evaluation index.
