@@ -10,7 +10,7 @@ model = dict(
         out_indices=(0, 1, 2, 3),
         frozen_stages=1,
         style='pytorch',
-        dcn=dict(   # 在最后一个阶段加入可变形卷积 改进点1
+        dcn=dict(
             modulated=False, deformable_groups=1, fallback_on_stride=False),
         stage_with_dcn=(False, False, False, True)),
     neck=dict(
@@ -23,7 +23,7 @@ model = dict(
         in_channels=256,
         feat_channels=256,
         anchor_scales=[8],
-        anchor_ratios=[0.02, 0.05, 0.1, 0.5, 1.0, 2.0, 10.0, 20.0, 50.0],  # 根据样本瑕疵尺寸分布，修改anchor的长宽比。 改进点2
+        anchor_ratios=[0.02, 0.05, 0.1, 0.5, 1.0, 2.0, 10.0, 20.0, 50.0],
         anchor_strides=[4, 8, 16, 32, 64],
         target_means=[.0, .0, .0, .0],
         target_stds=[1.0, 1.0, 1.0, 1.0],
@@ -109,8 +109,8 @@ train_cfg = dict(
                 neg_iou_thr=0.5,
                 min_pos_iou=0.5,
                 ignore_iof_thr=-1),
-            sampler=dict(   # 默认使用的是随机采样RandomSampler，这里替换成OHEM采样，即每个级联层引入在线难样本学习，改进点3
-                type='OHEMSampler',  # type='OHEMSampler',
+            sampler=dict(
+                type='OHEMSampler',
                 num=512,
                 pos_fraction=0.17,
                 neg_pos_ub=-1,
@@ -191,7 +191,7 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    imgs_per_gpu=6,  # 每张gpu训练多少张图片  batch_size = gpu_num(训练使用gpu数量) * imgs_per_gpu
+    imgs_per_gpu=6,
     workers_per_gpu=2,
     train=dict(
         type=dataset_type,
@@ -210,7 +210,7 @@ data = dict(
         pipeline=test_pipeline))
 
 # optimizer
-optimizer = dict(type='SGD', lr=0.0075, momentum=0.9, weight_decay=0.0001)  # 学习率的设置尤为关键：lr = 0.00125*batch_size
+optimizer = dict(type='SGD', lr=0.0075, momentum=0.9, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
 # learning policy
 lr_config = dict(
@@ -219,7 +219,7 @@ lr_config = dict(
     warmup_iters=500,
     warmup_ratio=1.0 / 3,
     step=[8, 11])
-checkpoint_config = dict(interval=1)  # 存储模型的迭代间隔
+checkpoint_config = dict(interval=1)
 # yapf:disable
 log_config = dict(
     interval=50,
