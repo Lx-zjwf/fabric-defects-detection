@@ -9,7 +9,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0, 1"
 # 模型配置文件
 config_file = 'cascade_rcnn_r50_fpn_1x.py'
 
-# 预训练模型文件
+# 训练权重文件
 checkpoint_file = 'work_dirs/dcn/epoch_25.pth'
 
 # 通过模型配置文件与预训练文件构建模型
