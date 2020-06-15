@@ -12,44 +12,44 @@ defect_label2name = {
 
 def main():
 
-    # # 存储标注信息
-    # json_file = '/home/ubuntu/Project/fabric_defects_detection/fabric datast/' \
-    #             'coco/annotations/instances_train.json'
-    # cfg_info = json.load(open(json_file, 'r'))
-    #
-    # anno_info = cfg_info["annotations"]  # 读取标注信息
-    # image_info = cfg_info["images"]  # 读取图像信息
-    #
-    # # 设置初始化信息
-    # image_id = -1
-    #
-    # for anno_dict in anno_info:
-    #     cur_id = anno_dict["image_id"]  # 读取当前图像的id
-    #     output = ""  # 写入文本中的内容
-    #     # 判断是否还是上一组信息对应的图像
-    #     if cur_id != image_id:
-    #         image_id = cur_id
-    #         image_name = image_info[image_id]["file_name"]
-    #         file_name = image_name.split(".", 1)[0]  # 提取图像名称
-    #         text_name = file_name + ".txt"  # 对应的文本文件信息
-    #     else:
-    #         output = "\n"
-    #
-    #     output += defect_label2name[anno_dict["category_id"]] + " "
-    #     output += str(anno_dict["bbox"][0]) + " " + str(anno_dict["bbox"][1]) + " " + \
-    #               str(anno_dict["bbox"][0] + anno_dict["bbox"][2]) + " " + str(
-    #         anno_dict["bbox"][1] + anno_dict["bbox"][3])
-    #
-    #     # 将信息写入文本中
-    #     text_path = "ground-truth/" + text_name
-    #     f = open(text_path, 'a')
-    #     f.write(output)
-    #     f.close()
+    # 存储标注信息
+    json_file = '/home/ubuntu/Project/fabric_defects_detection/fabric datast/' \
+                'coco/annotations/instances_train.json'
+    cfg_info = json.load(open(json_file, 'r'))
+
+    anno_info = cfg_info["annotations"]  # 读取标注信息
+    image_info = cfg_info["images"]  # 读取图像信息
+
+    # 设置初始化信息
+    image_id = -1
+
+    for anno_dict in anno_info:
+        cur_id = anno_dict["image_id"]  # 读取当前图像的id
+        output = ""  # 写入文本中的内容
+        # 判断是否还是上一组信息对应的图像
+        if cur_id != image_id:
+            image_id = cur_id
+            image_name = image_info[image_id]["file_name"]
+            file_name = image_name.split(".", 1)[0]  # 提取图像名称
+            text_name = file_name + ".txt"  # 对应的文本文件信息
+        else:
+            output = "\n"
+
+        output += defect_label2name[anno_dict["category_id"]] + " "
+        output += str(anno_dict["bbox"][0]) + " " + str(anno_dict["bbox"][1]) + " " + \
+                  str(anno_dict["bbox"][0] + anno_dict["bbox"][2]) + " " + str(
+            anno_dict["bbox"][1] + anno_dict["bbox"][3])
+
+        # 将信息写入文本中
+        text_path = "ground-truth/" + text_name
+        f = open(text_path, 'a')
+        f.write(output)
+        f.close()
 
     # 存储测试结果
-    folder_name = 'work_dirs/ohem+focal loss0.5/'
+    folder_name = 'work_dirs/optimize ohem/'  # 权重路径
     config_file = 'cascade_rcnn_r50_fpn_1x.py'
-    checkpoint_file = folder_name + 'epoch_50.pth'
+    checkpoint_file = folder_name + 'epoch_30.pth'
 
     test_path = '/home/ubuntu/Project/fabric_defects_detection/' \
                 'fabric datast/coco/images/test'
