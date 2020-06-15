@@ -52,7 +52,7 @@ def main():
     checkpoint_file = folder_name + 'epoch_50.pth'
 
     test_path = '/home/ubuntu/Project/fabric_defects_detection/' \
-                'fabric datast/coco/images/test'  # 官方测试集图片路径
+                'fabric datast/coco/images/test'
 
     model = init_detector(config_file, checkpoint_file, device='cuda:0')
 
