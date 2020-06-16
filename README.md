@@ -17,7 +17,7 @@ R-CNN branches to locate and classify defects with gradual increasing iou thresh
 The model can obtain 61.67% average iou, 78.67% precision, 79.79% recall and 62% mAP. The detection results can be shown as follows:<br>
 ![Alt text](https://github.com/348632874/fabric-defects-detection/blob/master/picture/mAP.jpg)<br>
 APs of detection results in each defect class are illustrated in the following picture: <br>
-![Alt text](https://github.com/348632874/fabric-defects-detection/blob/master/picture/result_1.jpg)<br>
+![Alt text](https://github.com/348632874/fabric-defects-detection/blob/master/picture/result_1.jpg)
 ![Alt text](https://github.com/348632874/fabric-defects-detection/blob/master/picture/result_2.jpg)<br>
-![Alt text](https://github.com/348632874/fabric-defects-detection/blob/master/picture/result_3.jpg)<br>
+![Alt text](https://github.com/348632874/fabric-defects-detection/blob/master/picture/result_3.jpg)
 ![Alt text](https://github.com/348632874/fabric-defects-detection/blob/master/picture/result_4.jpg)<br>
