@@ -12,11 +12,11 @@ Before training, you should modify parameters in config file cascade_rcnn_r50_fp
 
 # Introduction
 This item provide a Cascade R-CNN for fabric defects detection, based on the baseline provided by sloan and jianh <https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.9.43b46448UDpstK&postId=74264> and datasets provided by Tianchi algorithm Contest <https://tianchi.aliyun.com/competition/entrance/231748/introduction?spm=5176.12281957.1004.5.38b02448NiKTgT>. The Resnet50 is set as backbone network to extract feature, combined with feature pyramid network and deformable convolution. We use three 
-R-CNN branches to locate and classify defects with gradual increasing iou threshold, and each branch samples by OHEM algorithm. The architecture of our cascade model is:
+R-CNN branches to locate and classify defects with gradual increasing iou threshold, and each branch samples by OHEM algorithm. The architecture of our cascade model is:<br>
 ![Alt text](https://github.com/348632874/fabric-defects-detection/blob/master/picture/architecture.jpg)
-The model can obtain 61.67% average iou, 78.67% precision, 79.79% recall and 62% mAP. The detection results can be shown as follows:
+The model can obtain 61.67% average iou, 78.67% precision, 79.79% recall and 62% mAP. The detection results can be shown as follows:<br>
 ![Alt text](https://github.com/348632874/fabric-defects-detection/blob/master/picture/mAP.jpg)
-APs of detection results in each defect class are illustrated in the following picture: 
+APs of detection results in each defect class are illustrated in the following picture: <br>
 ![Alt text](https://github.com/348632874/fabric-defects-detection/blob/master/picture/result_1.jpg)
 ![Alt text](https://github.com/348632874/fabric-defects-detection/blob/master/picture/result_2.jpg)
 ![Alt text](https://github.com/348632874/fabric-defects-detection/blob/master/picture/result_3.jpg)
